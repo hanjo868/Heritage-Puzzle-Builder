@@ -99,6 +99,12 @@ button { font: inherit; }
 .stats span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
 .stats strong { font-size: 20px; }
 
+/* Countdown warning (last 30 seconds) */
+.stats div.low { background: #fdebe8; border-color: var(--red); }
+.stats div.low strong { color: var(--red); animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { 50% { opacity: .35; } }
+.badge.badgeRed { background: var(--red); }
+
 .play { display: flex; gap: 18px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
 
 .boardWrap { position: relative; width: var(--board); height: var(--board); }
@@ -114,6 +120,15 @@ button { font: inherit; }
 .slot {
   border: 1px dashed rgba(122, 74, 29, .35);
   position: relative;
+
+
+
+  
+#photoChoices .choice { flex: 1 1 45%; }
+
+
+
+
 }
 .slot.over { background: rgba(224, 165, 38, .35); }
 .slot.ready { cursor: pointer; }
@@ -222,6 +237,22 @@ button { font: inherit; }
 .modalBox h3 { margin-bottom: 4px; color: var(--red); }
 #factMain { text-align: left; line-height: 1.5; margin-top: 4px; }
 #factList { text-align: left; line-height: 1.5; padding-left: 20px; }
+
+/* Preview screen */
+.previewBox { max-width: 480px; }
+.previewBox .eyebrow { margin: 0; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); font-weight: 700; }
+.previewBox h2 { font-size: clamp(18px, 4.5vw, 22px); }
+.previewInfo { margin: 0 0 12px; color: var(--muted); font-weight: 600; }
+.previewImg {
+  display: block;
+  width: min(100%, 380px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 auto 10px;
+  border: 4px solid #7a4a1d;
+  border-radius: 8px;
+  background: #e9dcc2;
+}
 
 @media (max-width: 480px) {
   .stats strong { font-size: 16px; }
