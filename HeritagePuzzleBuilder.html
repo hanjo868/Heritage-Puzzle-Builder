@@ -10,32 +10,34 @@
   <header class="top">
     <p class="eyebrow">PROJECT BAHANDI · Molo, Iloilo City</p>
     <h1>Heritage Puzzle Builder</h1>
-    <p class="site">Molo Public Market</p>
+    <p class="site">Molo, Iloilo City</p>
   </header>
 
   <main>
     <!-- START SCREEN -->
     <section id="menu" class="card">
-      <h2>Rebuild the market</h2>
+      <h2>Rebuild the heritage</h2>
       <p class="lead">
-        Reconstruct a photograph of Molo Public Market, one of the oldest public markets in
-        Iloilo City and the home of the original Pancit Molo.
+        Reconstruct a photograph of Molo's most iconic landmarks, from the historic public market to the famous church.
       </p>
 
       <div class="group">
         <h3>1. Choose a photo</h3>
+        <!-- Added the 2 new buttons here -->
         <div class="choices" id="photoChoices">
-          <button class="choice active" data-mode="modern">Modern view</button>
-          <button class="choice" data-mode="historical">Historical view</button>
+          <button class="choice active" data-mode="modern">Modern Market</button>
+          <button class="choice" data-mode="historical">Historical Market</button>
+          <button class="choice" data-mode="church">Molo Church</button>
+          <button class="choice" data-mode="mansion">Heritage House</button>
         </div>
       </div>
 
       <div class="group">
         <h3>2. Select difficulty</h3>
         <div class="choices" id="levelChoices">
-          <button class="choice active" data-n="3">Easy<br /><small>3 × 3 · 9 pieces</small></button>
-          <button class="choice" data-n="4">Medium<br /><small>4 × 4 · 16 pieces</small></button>
-          <button class="choice" data-n="5">Hard<br /><small>5 × 5 · 25 pieces</small></button>
+          <button class="choice active" data-n="3">Easy<br /><small>3 × 3 · 9 pieces<br />5:00 time limit</small></button>
+          <button class="choice" data-n="4">Medium<br /><small>4 × 4 · 16 pieces<br />7:00 time limit</small></button>
+          <button class="choice" data-n="5">Hard<br /><small>5 × 5 · 25 pieces<br />10:00 time limit</small></button>
         </div>
       </div>
 
@@ -47,7 +49,7 @@
     <!-- GAME SCREEN -->
     <section id="game" class="hidden">
       <div class="stats">
-        <div><span>Time</span><strong id="time">00:00</strong></div>
+        <div id="timeBox"><span>Time left</span><strong id="time">00:00</strong></div>
         <div><span>Score</span><strong id="score">0</strong></div>
         <div><span>Placed</span><strong id="placed">0/0</strong></div>
         <div><span>Mistakes</span><strong id="mistakes">0</strong></div>
@@ -67,11 +69,48 @@
 
       <div class="actions">
         <button id="peekBtn">Hold to preview</button>
+        <button id="soundBtn">Sound: On</button>
+        <!-- Removed the duplicate music button here -->
+        <button id="musicBtn">Music: On</button>
         <button id="restartBtn">Restart</button>
         <button id="menuBtn">Menu</button>
       </div>
     </section>
   </main>
+
+  <!-- PREVIEW SCREEN -->
+  <div id="preview" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+    <div class="modalBox previewBox">
+      <p class="eyebrow">Get ready</p>
+      <h2 id="previewTitle">This is the photo you will rebuild</h2>
+      <p id="previewInfo" class="previewInfo"></p>
+      <img id="previewImg" class="previewImg" alt="Preview of the puzzle photo" />
+      <p class="hint">Take a good look. The countdown starts when you press Start Puzzle.</p>
+      <div class="actions">
+        <button id="beginBtn" class="primary">Start Puzzle</button>
+        <button id="previewBackBtn">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIME'S UP SCREEN -->
+  <div id="timeup" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="timeupTitle">
+    <div class="modalBox">
+      <div class="badge badgeRed">!</div>
+      <h2 id="timeupTitle">Time's up!</h2>
+      <p id="timeupInfo" class="previewInfo"></p>
+      <div class="result">
+        <div><span>Placed</span><strong id="tuPlaced"></strong></div>
+        <div><span>Score</span><strong id="tuScore"></strong></div>
+        <div><span>Mistakes</span><strong id="tuMistakes"></strong></div>
+      </div>
+      <p class="hint">Don't give up! Try again and beat the clock.</p>
+      <div class="actions">
+        <button id="retryBtn" class="primary">Try Again</button>
+        <button id="timeupMenuBtn">Menu</button>
+      </div>
+    </div>
+  </div>
 
   <!-- RESULT MODAL -->
   <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -84,7 +123,7 @@
         <div><span>Mistakes</span><strong id="rMistakes"></strong></div>
       </div>
       <p id="newBest" class="newBest hidden">New best score!</p>
-      <h3>About Molo Public Market</h3>
+      <h3>About Molo, Iloilo City</h3>
       <p id="factMain"></p>
       <ul id="factList"></ul>
       <div class="actions">
