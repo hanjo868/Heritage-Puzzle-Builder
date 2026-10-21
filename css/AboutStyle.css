@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Project Bahandi - Master Stylesheet (Home Color Sync)
+   ========================================================================== */
+
+:root {
+  --primary-navy: #14213d;
+  --accent-blue: #5C87C7;
+  --accent-blue-hover: #3b82f6;
+  --bg-slate: #f8fafc;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+}
+
+/* Global Base */
+body {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Hero Section Base */
+.hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  letter-spacing: 0.05em;
+}
+
+.hero p {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+/* Harmonized Button Component Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+/* Primary Button Uses Accent Blue */
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 14px rgba(92, 135, 199, 0.35);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-blue-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(92, 135, 199, 0.45);
+}
+
+/* Secondary Button Glassmorphism */
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Section Layouts */
+.section {
+  padding: 80px 0;
+}
+
+.section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 0.05em;
+}
+
+.section p {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.section-muted {
+  background-color: var(--bg-slate);
+}
+
+/* Media & Video Placeholders */
+.video-placeholder {
+  width: 100%;
+  min-height: 240px;
+  border: 2px dashed var(--accent-blue);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  margin: 16px 0 24px;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--primary-navy);
+  background: #f0f4f9;
+}
+
+/* Footer Styling */
+.site-footer {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 1fr;
+  gap: 32px;
+}
+
+.site-footer h2, 
+.site-footer h3 {
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.site-footer p,
+.site-footer li,
+.site-footer a {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Entry Animations */
+.hero-fade,
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-fade.in-view,
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth Interactive Hover Cards */
+.hover-scale-103 {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-scale-103:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 30px -10px rgba(20, 33, 61, 0.12);
+}
+
+.hover-lift-8 {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift-8:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px -6px rgba(20, 33, 61, 0.15);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+}

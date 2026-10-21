@@ -1,0 +1,99 @@
+/* ==========================================================================
+   HOMEPAGE ANIMATION & BASE INTERACTION STYLES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. KEYFRAME DEFINITIONS (Subtle and Standard Transitions)
+   -------------------------------------------------------------------------- */
+
+/* Standard Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Subtle Upward Slide */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gentle Hero Focus */
+@keyframes heroScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   2. REUSABLE UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.animate-hero {
+  animation: heroScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger Delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+
+/* --------------------------------------------------------------------------
+   3. CLEANED INTERACTION STYLES
+   -------------------------------------------------------------------------- */
+
+/* Standard Card Interactivity: Replaced extreme hover lifts with a subtle lift */
+.wireframe-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s ease, 
+              box-shadow 0.25s ease;
+}
+
+.wireframe-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(92, 135, 199, 0.35);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* Primary Button Smooth Micro-interaction */
+.cta-btn-primary {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+/* Clean Footer Logo Hover Effect */
+.partner-logo {
+  transition: opacity 0.2s ease;
+}
+
+.partner-logo:hover {
+  opacity: 0.85;
+}
