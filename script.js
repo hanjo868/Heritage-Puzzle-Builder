@@ -3,6 +3,23 @@
    Site: Molo, Iloilo City
    ========================================================= */
 
+/* ---------- 0. PAGE BACKGROUND (Molo Plaza photo) ---------- */
+/* The photo and the light cover that washes it out are both painted by
+   css/style.css (body.plaza-bg::before / ::after). Here we only preload the
+   image and flag the body once it has decoded, so the page never flashes an
+   empty cream background while a slow connection catches up. */
+(function initPageBackground() {
+  const PHOTO = "assets/molo-plaza-bg.jpg";
+  const img = new Image();
+  img.decoding = "async";
+  const markReady = () => {
+    if (document.body) document.body.classList.add("bg-ready");
+  };
+  img.onload = markReady;
+  img.onerror = markReady;   // photo missing -> fall back to the flat cream bg
+  img.src = PHOTO;
+})();
+
 /* ---------- 1. CONFIG: edit these ---------- */
 
 // The new images are mapped here. Make sure the file names match exactly!
