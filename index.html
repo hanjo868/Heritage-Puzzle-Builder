@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Heritage Puzzle Builder | Project Bahandi: Molo Public Market</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preload" as="image" href="assets/molo-plaza-bg.jpg" />
 </head>
+
 <body class="plaza-bg">
   <header class="top">
     <p class="eyebrow">PROJECT BAHANDI · Molo, Iloilo City</p>
@@ -27,7 +30,6 @@
 
       <div class="group">
         <h3>1. Choose a photo</h3>
-        <!-- Added the 2 new buttons here -->
         <div class="choices" id="photoChoices">
           <button class="choice active" data-mode="modern">Modern Market</button>
           <button class="choice" data-mode="historical">Historical Market</button>
@@ -39,9 +41,18 @@
       <div class="group">
         <h3>2. Select difficulty</h3>
         <div class="choices" id="levelChoices">
-          <button class="choice active" data-n="3">Easy<br /><small>3 × 3 · 9 pieces<br />5:00 time limit</small></button>
-          <button class="choice" data-n="4">Medium<br /><small>4 × 4 · 16 pieces<br />7:00 time limit</small></button>
-          <button class="choice" data-n="5">Hard<br /><small>5 × 5 · 25 pieces<br />10:00 time limit</small></button>
+          <button class="choice active" data-n="3">
+            Easy<br />
+            <small>3 × 3 · 9 pieces<br />5:00 time limit</small>
+          </button>
+          <button class="choice" data-n="4">
+            Medium<br />
+            <small>4 × 4 · 16 pieces<br />7:00 time limit</small>
+          </button>
+          <button class="choice" data-n="5">
+            Hard<br />
+            <small>5 × 5 · 25 pieces<br />10:00 time limit</small>
+          </button>
         </div>
       </div>
 
@@ -74,7 +85,6 @@
       <div class="actions">
         <button id="peekBtn">Hold to preview</button>
         <button id="soundBtn">Sound: On</button>
-        <!-- Removed the duplicate music button here -->
         <button id="musicBtn">Music: On</button>
         <button id="restartBtn">Restart</button>
         <button id="menuBtn">Menu</button>
